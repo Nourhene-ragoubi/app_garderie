@@ -1,0 +1,116 @@
+﻿<?php include('Modele/Parent.php');
+$e = new Parentt();
+$data = $e->getParentByCinParent($_GET['idd']); 
+if(isset($_POST['action']) & $_POST['action']=='Valider'){
+$e->setNomParent($_POST['nomParent']); 
+$e->setPrenomParent($_POST['prenomParent']);
+$e->setEmailParent($_POST['emailParent']);  
+ $e->setTelephoneParent($_POST['telephoneParent']); 
+$e->setAdresseParent($_POST['adresseParent']);
+$e->setCinParent($_POST['cinParent']); 
+$e->setFonctionPere($_POST['fonctionPere']);
+$e->setFonctionMere($_POST['fonctionMere']);
+$e->setNomMere($_POST['nomMere']);
+$e->setPrenomMere($_POST['prenomMere']);
+$e->setTelephoneMere($_POST['telephoneMere']);
+$res = $e->EditParent($e); 
+if($res){
+	header('Location:ListParent.php');
+}
+}
+include("header.php");
+ ?>
+				<div class="app-content  my-3 my-md-5">
+					<div class="side-app">
+						<div class="page-header">
+							<h4 class="page-title">Gestion Parent</h4>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Gestion Parent</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Modifier Parent</li>
+							</ol>
+						</div>
+						<div class="row row-deck">
+							<div class="col-lg-12">
+								<form   method="post" action="EditeParent.php" class="card">
+									<div class="card-header">
+										<h3 class="card-title">Modifier Parent</h3>
+									</div>
+									<div class="card-body" >
+										<div class="form-group">
+										<input type="hidden"   name="cinParent"  value="<?php echo $data['cinParent']; ?>" >
+											<label class="form-label">Cin Pére/Mére</label>
+											<input type="text"  disabled class="form-control" value="<?php echo $data['cinParent']; ?>"   pattern="[0-9]{8}" title="8 chiffres"  name="cinParent"  required >
+										</div> 
+										
+										<div class="form-group">
+											<label class="form-label">Nom Pére</label>
+											<input type="text" disabled class="form-control" value="<?php echo $data['nomParent']; ?>" maxlength="30" title="le nom du père doit contenir uniquement des lettres" pattern="[A-Za-z]{3,}" name="nomParent" placeholder="text" required>
+										
+										</div> 
+										<div class="form-group">
+											<label class="form-label">Prénom Pére</label>
+											<input type="text" disabled class="form-control" value="<?php echo $data['prenomParent']; ?>" maxlength="30" title="le prénom du père doit contenir uniquement des lettres" pattern="[A-Za-z]{3,}" name="prenomParent" placeholder="text" required>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Email Pére/Mére</label>
+											<input type="email" class="form-control" value="<?php echo $data['emailParent']; ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="E-mail invalide, il doit contenir @ et . " name="emailParent" placeholder="email" required>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Téléphone Pere</label>
+											<input type="text" class="form-control" value="<?php echo $data['telephoneParent']; ?>" pattern="[0-9]{8}" title="8 chiffres" name="telephoneParent" placeholder="number" required>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Adresse</label>
+											<input type="text" class="form-control" value="<?php echo $data['adresseParent']; ?>"maxlength="40" name="adresseParent" placeholder="text" required>
+										</div>
+										
+										
+										<div class="form-group">
+											<label class="form-label">Fonction Mére</label>
+											<input type="text" class="form-control" value="<?php echo $data['fonctionMere']; ?>" maxlength="30" title="le fonction du mére doit contenir uniquement des lettres" pattern="[A-Za-z]{3,}" name="fonctionMere" placeholder="text" required>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Fonction Pére</label>
+											<input type="text" class="form-control" value="<?php echo $data['fonctionPere']; ?>" maxlength="30"title="le fonction du père doit contenir uniquement des lettres" pattern="[A-Za-z]{3,}" name="fonctionPere" placeholder="text" required>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Nom Mére</label>
+											<input type="text" disabled class="form-control" value="<?php echo $data['nomMere']; ?>" maxlength="30" title="le nom du mère doit contenir uniquement des lettres" pattern="[A-Za-z]{3,}" name="nomMere" placeholder="text" required>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Prénom Mére</label>
+											<input type="text" disabled class="form-control" value="<?php echo $data['prenomMere']; ?>" maxlength="30" title="le prénom du mère doit contenir uniquement des lettres" pattern="[A-Za-z]{3,}" name="prenomMere" placeholder="text" required>
+										</div>
+										<div class="form-group">
+											<label class="form-label">Téléphone Mére</label>
+											<input type="number" class="form-control" pattern="[0-9]{8}" title="8 chiffres" value="<?php echo $data['telephoneMere']; ?>" name="telephoneMere" placeholder="text" required>
+										</div>
+
+									
+
+										
+
+										
+
+									
+
+										
+
+										
+										<div class="box_footer">
+											<button type="submit" name="action" class="btn btn-primary ml-auto">Annuler</button>
+											<button type="submit" name="action" value="Valider" class="btn btn-primary ml-auto">Valider</button>
+										</div>
+									
+									
+				
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</form>
+							
+
+<?php include("footer.php");; ?>
+  

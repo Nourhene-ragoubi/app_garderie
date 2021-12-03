@@ -1,0 +1,19 @@
+<div class="form-group">
+											<label class="form-label">Mois</label> 
+	                                       <select name="moisPaiment" class="form-control select2 custom-select" required>
+											  <option value="">choisir le mois</option>
+											 <option value="Janvier">Janvier</option>
+											  <option value="Février">Février</option>
+											  <option value="Mars">Mars</option>
+											  <option value="Avril">Avril</option>
+											  <option value="Mai">Mai</option>
+											  <option value="Juin">Juin</option>
+											  <option value="Juillet">Juillet</option>
+											  <option value="Août">Août</option>
+											  <option value="September">September</option>
+											  <option value="Octobre">Octobre</option>
+										      <option value="Novombre">Novombre</option>
+											  <option value="Décombre">Décombre</option> 
+                                        </select>
+                                           </div> 
+									
